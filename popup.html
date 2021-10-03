@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ClickUp Git Task Title Formatter</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  </link>
+  <link rel="stylesheet" type="text/css" href="icons/css/all.css">
+  </link>
+</head>
+
+<body class="main-body">
+  <div class="row header">
+    <img src="./assets/icon128.png" class="icon" />
+    <div class="heading">
+      <p>ClickUp Git Task Title</p>
+      <p>Formatter</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <p class="title">User name</p>
+    <input id="cttf_user_name" class="input" value="" placeholder="Profile user name..." />
+  </div>
+
+  <div class="footer">
+    <p class="title">DOM Elements Requirement</p>
+    <div class="row status-container" title='class="task-name__overlay"'>
+      <i id="cttf_task_name_check_icon" class="fas fa-times status-icon status-icon--danger"></i>
+      <p class="text">Task name</p>
+    </div>
+    <div class="row status-container" title='class="cu-git-integration-modal__form-item-input"'>
+      <i id="cttf_form_input_check_icon" class="fas fa-times status-icon status-icon--danger"></i>
+      <p class="text">Task id - form input</p>
+    </div>
+
+    <div class="note-container">
+      <span class="note">Set shortcut (Ctrl - window or Cmd - macOS)+Shift+→ for this exts to able to format quickly
+        without open popup.
+      </span>
+      <span id="cttf_chrome_shortcuts" class="note link">Open shortcuts</span>
+    </div>
+
+    <div class="submit-container">
+      <button id="cttf_btn_format" class="btn btn--primary btn--disabled">Format it</button>
+    </div>
+  </div>
+</body>
+<script src="popup.js"></script>
+
+</html>

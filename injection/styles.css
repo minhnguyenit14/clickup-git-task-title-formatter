@@ -1,0 +1,84 @@
+.cttf_error-container {
+  position: absolute;
+  bottom: 15px;
+  right: -20%;
+  transition: all 0.3s ease-in-out 0s;
+  opacity: 0;
+  z-index: 99999;
+  padding: 15px;
+  border-radius: 4px;
+  border-left: 5px solid rgb(239, 71, 111);
+  background-color: rgb(240, 240, 240);
+  box-shadow: rgba(0, 0, 0, 0.6) 3px 5px 70px;
+  cursor: pointer !important;
+  font-family: system-ui !important;
+}
+
+.cttf_error-title {
+  color: rgb(239, 71, 111);
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+  display: inline-flex;
+  /* background: -webkit-linear-gradient(0deg, #d28082, #c54fba, #8c41f3, #4fb1f6);
+  background: linear-gradient(90deg, #d28082, #c54fba, #8c41f3, #4fb1f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+.cttf_error-content-container {
+  color: rgb(204, 204, 204);
+  font-weight: 400;
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.cttf_error-content-text {
+  color: rgb(153, 153, 153);
+  font-weight: 300;
+}
+
+.cttf_error-content-list {
+  margin-left: 15px;
+  list-style-type: disc !important;
+}
+
+.cttf_error-content-list > li {
+  margin-top: 5px;
+  color: rgb(153, 153, 153);
+  font-weight: 300;
+}
+
+.cttf_error-content-list > li > span {
+  font-weight: 600;
+  color: rgb(136, 136, 136);
+  font-style: normal;
+}
+
+.cttf_toast-container {
+  position: absolute;
+  z-index: 9999;
+  left: 0;
+  right: 0;
+  bottom: 15px;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.cttf_toast-content-container {
+  border-radius: 4px;
+  background-color: #242424;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 15px;
+  font-size: 15px;
+}
+
+.cttf_text-highlight {
+  color: #5ba1f0 !important;
+  font-weight: 500 !important;
+}
