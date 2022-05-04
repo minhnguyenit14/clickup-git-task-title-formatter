@@ -80,6 +80,16 @@ document.addEventListener(
       }
     });
 
+    chrome.storage.sync.get('cttf_task_folder', function (e) {
+      let taskFolder = e?.cttf_task_folder || '';
+      document.getElementById('cttf_task_folder').value = taskFolder;
+    });
+
+    chrome.storage.sync.get('cttf_task_code', function (e) {
+      let taskCode = e?.cttf_task_code || 'CU';
+      document.getElementById('cttf_task_code').value = taskCode;
+    });
+
     function checkRequirement() {
       const defaultTaskNameClassName = 'task-name__overlay';
       const defaultTaskNameInputClassName =
@@ -96,7 +106,7 @@ document.addEventListener(
     }
 
     function getActiveTab(callback = () => {}) {
-      chrome.tabs.query({ active: true }, function (tabs) {
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         const tab = tabs[0];
 
         callback(tab);
@@ -117,9 +127,27 @@ document.addEventListener(
       .getElementById('cttf_user_name')
       .addEventListener('input', changeUserName);
 
+    document
+      .getElementById('cttf_task_folder')
+      .addEventListener('input', changeTaskFolder);
+
+    document
+      .getElementById('cttf_task_code')
+      .addEventListener('input', changeTaskCode);
+
     function changeUserName() {
       let value = this.value;
       chrome.storage.sync.set({ cttf_user_name: value }, () => {});
+    }
+
+    function changeTaskFolder() {
+      let value = this.value;
+      chrome.storage.sync.set({ cttf_task_folder: value }, () => {});
+    }
+
+    function changeTaskCode() {
+      let value = this.value;
+      chrome.storage.sync.set({ cttf_task_code: value }, () => {});
     }
 
     document

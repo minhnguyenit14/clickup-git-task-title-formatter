@@ -1,11 +1,19 @@
 chrome.storage.sync.get('cttf_user_name', function (e) {
   let userName = e?.cttf_user_name;
 
-  format(userName);
+  chrome.storage.sync.get('cttf_task_folder', function (e) {
+    let taskFolder = e?.cttf_task_folder;
+
+    chrome.storage.sync.get('cttf_task_code', function (e) {
+      let taskCode = e?.cttf_task_code;
+
+      format({ userName, taskFolder, taskCode });
+    });
+  });
 });
 
 function format(
-  userName,
+  { userName, taskFolder, taskCode },
   taskNameClassName,
   taskNameInputClassName,
   taskDescriptionTextareaClassName,
@@ -170,13 +178,19 @@ function format(
     return taskString;
   };
 
-  let taskInfo = formInput?.value?.split('_') || [];
-  const taskId = taskInfo[0];
+  const taskId =
+    document
+      .querySelectorAll('[data-task-id]')?.[0]
+      ?.getAttribute('data-task-id') ||
+    window.location.href.split('/').reverse()[0];
 
   taskName = formatTaskString(taskName);
 
   userName = formatTaskString(userName);
+
   taskName =
+    (taskFolder ? taskFolder + '/' : '') +
+    ((taskCode || 'CU') + '-') +
     taskId +
     (taskName ? '_' + taskName : '') +
     (userName ? '_' + userName : '');
