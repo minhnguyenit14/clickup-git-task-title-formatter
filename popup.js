@@ -91,7 +91,13 @@ document.addEventListener(
     });
 
     function checkRequirement() {
-      const defaultTaskNameClassName = 'task-name__overlay';
+      // ClickUp v2.0
+      let defaultTaskNameClassName = 'task-name__overlay';
+      if (!document.getElementsByClassName('task-name__overlay')[0]) {
+        // ClickUp v3.0
+        defaultTaskNameClassName = 'cu-task-title__overlay';
+      }
+
       const defaultTaskNameInputClassName =
         'cu-git-integration-modal__form-item-input';
 

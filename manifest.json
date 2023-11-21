@@ -3,7 +3,7 @@
 
   "name": "ClickUp Git Task Title Formatter",
   "description": "This extension will format ClickUp task name without losing any character",
-  "version": "1.0.3",
+  "version": "1.0.4",
 
   "permissions": ["activeTab", "scripting", "storage"],
 
